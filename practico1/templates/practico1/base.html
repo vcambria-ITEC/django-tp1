@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css_file %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'practico1/global.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'bienvenido' %}">Inicio</a>
+        <a href="{% url 'clima' %}">Clima</a>
+    </nav>
+
+    {% block body %}
+
+    {% endblock %}
+
+</body>
+</html>
