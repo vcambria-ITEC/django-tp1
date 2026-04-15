@@ -5,14 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block css_file %}{% endblock %}
-    <link rel="stylesheet" href="{% static 'practico1/global.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="shortcut icon" href="{% static 'practico1/img/favicon.png' %}" type="image/png">
     <title>{% block title %}{% endblock %}</title>
 </head>
-<body>
-    <nav>
-        <a href="{% url 'bienvenido' %}">Inicio</a>
-        <a href="{% url 'clima' %}">Clima</a>
+<body class="w-full flex flex-col bg-stone-900">
+    <header class="w-full h-36 flex justify-center items-center">
+        <h1 class="text-6xl text-white font-semibold">Infoclima</h1>
+    </header>
+    <nav class="w-full h-12 flex justify-start items-center bg-stone-800 text-zinc-200">
+        <a href="{% url 'bienvenido' %}" class="h-full px-6 flex items-center hover:cursor-pointer hover:bg-stone-700 transition-color">Inicio</a>
+        <a href="{% url 'clima' %}" class="h-full px-6 flex items-center hover:cursor-pointer hover:bg-stone-700 transition-color">Clima</a>
     </nav>
 
     {% block body %}

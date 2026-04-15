@@ -10,28 +10,30 @@ Clima
 {% endblock %}
 
 {% block body %}
-    <h1>Registros de Clima</h1>
+<main class="w-full flex flex-col items-center justify-start py-4">
+    <h2 class="text-4xl text-zinc-200 font-semibold pb-8">Registros de Clima</h2>
 
-<table class="tabla-clima">
-    <thead>
-        <tr>
-            <th>Ciudad</th>
-            <th>Fecha y Hora</th>
-            <th>Temperatura</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for c in climas %}
-        <tr>
-            <td>{{ c.nombre_ciudad }}</td>
-            <td>{{ c.fecha_y_hora|date:"d/m/Y H:i" }}</td>
-            <td>{{ c.temperatura }}°C</td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="3">No hay datos registrados aún.</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <table class="table-auto bg-zinc-600 border-collapse border border-stone-500">
+        <thead>
+            <tr>
+                <th class="border border-stone-300 py-2 px-4">Ciudad</th>
+                <th class="border border-stone-300 py-2 px-4">Fecha y Hora</th>
+                <th class="border border-stone-300 py-2 px-4">Temperatura</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in climas %}
+            <tr>
+                <td class="border border-stone-300 py-2 px-4">{{ c.nombre_ciudad }}</td>
+                <td class="border border-stone-300 py-2 px-4">{{ c.fecha_y_hora|date:"d/m/Y H:i" }}</td>
+                <td class="border border-stone-300 py-2 px-4">{{ c.temperatura }}°C</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="border border-stone-300 py-2 px-4 text-center">No hay datos registrados aún.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
 {% endblock %}

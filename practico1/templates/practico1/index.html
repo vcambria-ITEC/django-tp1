@@ -1,15 +1,12 @@
 {% extends 'practico1/base.html' %}
 {% load static %}
 
-{% block css_file %}
-<link rel="stylesheet" href="{% static 'practico1/index.css' %}">
-{% endblock %}
-
 {% block title %}
 Bienvenida
 {% endblock %}
 
 {% block body %}
-    <h1>¡Bienvenido al primer práctico!</h1>
-
+    <main class="w-full flex flex-col items-center">
+        <h2 class="text-zinc-200 font-semibold py-4 text-3xl">¡Bienvenido al primer práctico!</h2>
+    </main>
 {% endblock %}
