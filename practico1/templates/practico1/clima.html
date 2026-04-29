@@ -24,7 +24,7 @@ Clima
         <tbody>
             {% for c in climas %}
             <tr>
-                <td class="border border-stone-300 py-2 px-4">{{ c.nombre_ciudad }}</td>
+                <td class="border border-stone-300 py-2 px-4">{{ c.ciudad.nombre_ciudad }}</td>
                 <td class="border border-stone-300 py-2 px-4">{{ c.fecha_y_hora|date:"d/m/Y H:i" }}</td>
                 <td class="border border-stone-300 py-2 px-4">{{ c.temperatura }}°C</td>
             </tr>

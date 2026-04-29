@@ -1,0 +1,20 @@
+{% extends 'practico1/base.html'%}
+
+{% block title %}
+Crear Clima
+{% endblock %}
+
+{%block body%}
+
+<h1 class="text-center text-white">Crear clima</h1>
+<div class="w-full flex justify-center mt-5">
+<form method="post" class="text-white flex flex-col gap-3">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="px-4 py-2 bg-stone-700 rounded-md hover:cursor-pointer hover:bg-stone-600 transition-all"> enviar</button>
+</form>
+</div>
+
+{%endblock%}

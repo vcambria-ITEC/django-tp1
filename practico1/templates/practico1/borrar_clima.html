@@ -1,0 +1,25 @@
+{% extends 'practico1/base.html'%}
+
+{% block title %}
+Borrar Clima
+{% endblock %}
+
+{%block body%}
+
+<h1>Borrar clima</h1>
+<form method="post">
+
+    {% csrf_token %}
+    
+    <div>¿Estás seguro de borrar este clima?</div>
+    <h3>
+        Clima: {{ clima.ciudad.nombre_ciudad }} {{ clima.temperatura }} - {{ clima.fecha_y_hora }}
+    </h3>
+
+    <button type="submit"> Sí, eliminar. </button>
+    <a href="{% url 'clima' %}">No, volver.</a>
+
+</form>
+
+
+{%endblock%}
