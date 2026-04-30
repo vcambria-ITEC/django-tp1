@@ -6,7 +6,7 @@ def bienvenida(request):
     return render(request, 'practico1/index.html')
 
 def clima(request):
-    climas = Clima.objects.all().order_by('-fecha_y_hora')
+    climas = Clima.objects.filter(activo=True).order_by('-fecha_y_hora')
     context = {
         'climas': climas
     }
@@ -25,7 +25,7 @@ def crear_clima(request):
 
 def editar_clima(request, id):
 
-    clima = get_object_or_404(CLima, id=id)
+    clima = get_object_or_404(Clima, id=id)
 
     if request.method == "POST":
         form = ClimaForm(request.POST, instance=clima)
@@ -33,7 +33,7 @@ def editar_clima(request, id):
             form.save()
             return redirect("clima")
     else:
-        form = CLimaForm(instance=clima)
+        form = ClimaForm(instance=clima)
 
     return render(request, "practico1/editar_clima.html", {"form": form})
 

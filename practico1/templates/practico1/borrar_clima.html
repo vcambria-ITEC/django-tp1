@@ -4,22 +4,29 @@
 Borrar Clima
 {% endblock %}
 
-{%block body%}
-
-<h1>Borrar clima</h1>
-<form method="post">
-
-    {% csrf_token %}
+{% block body %}
+<main class="w-full flex flex-col items-center justify-start py-8 text-zinc-200">
+    <h1 class="text-3xl font-semibold mb-6">Borrar clima</h1>
     
-    <div>¿Estás seguro de borrar este clima?</div>
-    <h3>
-        Clima: {{ clima.ciudad.nombre_ciudad }} {{ clima.temperatura }} - {{ clima.fecha_y_hora }}
-    </h3>
+    <form method="post" class="flex flex-col items-center gap-4">
+        {% csrf_token %}
+        
+        <div class="text-lg">¿Estás seguro de borrar este registro?</div>
+        
+        <h3 class="text-xl font-medium bg-zinc-700 p-3 rounded border border-stone-500">
+            Clima: {{ clima.ciudad.nombre_ciudad }} | {{ clima.temperatura }}°C | {{ clima.fecha_y_hora|date:"d/m/Y H:i" }}
+        </h3>
 
-    <button type="submit"> Sí, eliminar. </button>
-    <a href="{% url 'clima' %}">No, volver.</a>
-
-</form>
-
-
-{%endblock%}
+        <div class="flex gap-4 mt-4">
+           
+            <button type="submit" class="bg-red-600 hover:bg-red-500 text-white py-2 px-4 rounded">
+                Sí, eliminar
+            </button>
+            
+            <a href="{% url 'clima' %}" class="bg-zinc-500 hover:bg-zinc-400 text-white py-2 px-4 rounded">
+                No, volver
+            </a>
+        </div>
+    </form>
+</main>
+{% endblock %}
