@@ -4,16 +4,20 @@
 Editar Clima
 {% endblock %}
 
-{%block body%}
+{% block body %}
+<main class="w-full flex flex-col items-center justify-start py-8 text-zinc-200">
+    <h1 class="text-3xl font-semibold mb-6">Editar clima</h1>
+    
+    <form method="post" class="flex flex-col gap-6">
+        {% csrf_token %}
+        
+        <div class="text-zinc-200 flex flex-col gap-4">
+            {{ form.as_p }}
+        </div>
 
-<h1>Editar clima</h1>
-<form method="post">
-
-    {% csrf_token %}
-    {{ form.as_p }}
-
-    <button type="submit">Guardar cambios</button>
-</form>
-
-
-{%endblock%}
+        <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded mt-2">
+            Guardar cambios
+        </button>
+    </form>
+</main>
+{% endblock %}

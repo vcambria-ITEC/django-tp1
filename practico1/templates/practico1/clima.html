@@ -19,6 +19,7 @@ Clima
                 <th class="border border-stone-300 py-2 px-4">Ciudad</th>
                 <th class="border border-stone-300 py-2 px-4">Fecha y Hora</th>
                 <th class="border border-stone-300 py-2 px-4">Temperatura</th>
+                <th class="border border-stone-300 py-2 px-4">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,10 +28,21 @@ Clima
                 <td class="border border-stone-300 py-2 px-4">{{ c.ciudad.nombre_ciudad }}</td>
                 <td class="border border-stone-300 py-2 px-4">{{ c.fecha_y_hora|date:"d/m/Y H:i" }}</td>
                 <td class="border border-stone-300 py-2 px-4">{{ c.temperatura }}°C</td>
+                <td class="border border-stone-300 py-2 px-4 text-center">
+                   
+                    <a href="{% url 'editar_clima' c.id %}" class="text-blue-400 hover:text-blue-300 hover:underline mr-3">
+                        Editar
+                    </a>
+                   
+                    <a href="{% url 'eliminar_clima' c.id %}" class="text-red-400 hover:text-red-300 hover:underline">
+                        Eliminar
+                    </a>
+                </td>
             </tr>
             {% empty %}
             <tr>
-                <td colspan="3" class="border border-stone-300 py-2 px-4 text-center">No hay datos registrados aún.</td>
+               
+                <td colspan="4" class="border border-stone-300 py-2 px-4 text-center">No hay datos registrados aún.</td>
             </tr>
             {% endfor %}
         </tbody>
